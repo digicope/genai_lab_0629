@@ -1,7 +1,7 @@
 ### 강의 교재
 <br>
 
-#### n8n wifidocs 문서 :
+#### n8n wikidocs 문서 :
 https://wikidocs.net/book/18092
 <br>
 
