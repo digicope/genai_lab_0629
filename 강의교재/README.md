@@ -14,7 +14,7 @@ https://www.upstage.ai/
 <br>
 
 #### Upstage Solar API 키 발급 사이트 :
-https://console.solapi.com/credentials
+https://console.upstage.ai/api-keys
 <br>
 
 #### Google Gemini API 키 발급 사이트 :
