@@ -16,3 +16,16 @@ https://www.upstage.ai/
 #### Upstage Solar API 키 발급 사이트 :
 https://console.solapi.com/credentials
 <br>
+
+#### Google Gemini API 키 발급 사이트 :
+https://aistudio.google.com/api-keys
+<br>
+
+#### OpenAI API 키 발급 사이트 :
+https://platform.openai.com/api-keys
+<br>
+
+#### Anthropic Claude 키 발급 사이트 :
+https://platform.claude.com/settings/workspaces/default/keys
+<br>
+
