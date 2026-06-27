@@ -29,3 +29,6 @@ https://platform.openai.com/api-keys
 https://platform.claude.com/settings/workspaces/default/keys
 <br>
 
+#### KAMIS API 키 발급 사이트 : (농수산물 가격 데이터 정보 제공)
+https://www.kamis.or.kr/customer/reference/openapi_list.do
+<br>
