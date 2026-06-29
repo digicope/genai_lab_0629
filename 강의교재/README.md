@@ -33,6 +33,3 @@ https://platform.claude.com/settings/workspaces/default/keys
 https://www.kamis.or.kr/customer/reference/openapi_list.do
 <br>
 
-#### PDF :
-https://acrobat.adobe.com/id/urn:aaid:sc:AP:2f610507-73e9-45e3-abc8-78a6cd224dfb
-<br>
