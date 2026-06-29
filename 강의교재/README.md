@@ -25,9 +25,10 @@ https://aistudio.google.com/api-keys
 https://platform.openai.com/api-keys
 <br>
 
-
-## PDF 링크주소 1:
+#### <PDF 링크주소 1> :
 https://acrobat.adobe.com/id/urn:aaid:sc:AP:2f610507-73e9-45e3-abc8-78a6cd224dfb
+<br>
+
 
 
 #### Anthropic Claude 키 발급 사이트 :
