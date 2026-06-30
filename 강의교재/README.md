@@ -33,3 +33,6 @@ https://platform.claude.com/settings/workspaces/default/keys
 https://www.kamis.or.kr/customer/reference/openapi_list.do
 <br>
 
+#### 카카오톡 API 키 사용 문서 :
+https://developers.kakao.com/docs/ko/tutorial/start
+
