@@ -6,7 +6,6 @@
 ``` https://news.google.com/rss/search?q=%EC%A3%BC%EC%8B%9D&hl=ko&gl=KR&ceid=KR%3Ako ```
 <br>
 
-
 ```
 {{ $today.format("DD") }}의 뉴스
 ```
@@ -17,4 +16,19 @@
 오늘의 뉴스요약
 ===================
 {{ $json.data.map(item => `${item.title}\n${item.link}`).join('\n\n') }}
+```
+<br>
+
+#### Discord Parameters의 Message 설정 :
+```
+{{ $json.dt.toDateTime('s').format('yyyy-MM-dd HH:mm') }} 기준 날씨 리포트
+
+📍 현재 서울 날씨
+- 상태: {{ $json.weather[0].description }}
+- 기온: {{ $json.main.temp }}°C (체감 {{ $json.main.feels_like }}°C)
+- 일출: {{ $json.sys.sunrise.toDateTime('s').format('HH:mm') }} / 일몰: {{ $json.sys.sunset.toDateTime('s').format('HH:mm') }}
+
+🌥️ 내일 예보 (오전 6시)
+- 상태: {{ $json.list[8].weather[0].description }}
+- 기온: {{ $json.list[8].main.temp }}°C (체감 {{ $json.list[8].main.feels_like }}°C)
 ```
