@@ -135,14 +135,9 @@ URL : https://kapi.kakao.com/v2/api/talk/memo/default/send
     "button_title": "바로 확인"
 }
 
-
-(버튼 없이 순수 텍스트만 보내는 방법은? :
-카카오톡에서는 '나에게 보내기 API'로는 지원되지 않습니다.)
-
 ----------------------------------------------------------------
-[참고]
-https://www.anhmake.com/code/70
-https://www.youtube.com/watch?v=ooHqqBJinEo
+(버튼 없이 순수 텍스트만 보내는 방법은? :
+카카오톡에서는 '나에게 보내기 API'로는 지원되지 않는다.)
 
 
 
