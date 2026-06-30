@@ -9,8 +9,11 @@
 
 ```
 {{ $today.format("DD") }}의 뉴스
+```
+<br>
 
 
+```
 오늘의 뉴스요약
 ===================
 {{ $json.data.map(item => `${item.title}\n${item.link}`).join('\n\n') }}
