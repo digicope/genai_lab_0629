@@ -9,6 +9,8 @@ https://ict-is.cbist.or.kr/education/view.do?educationKey=400&searchActiveFlag=Y
 
 #### git 사용기간 : 2026.06.29 ~ 07.10 (2026.07.10  이후에는 접속 불가)
 
+#### 제목없음 :
+https://drive.google.com/drive/u/0/folders/1Vtd2JDTjC1fzqeFlkBPaNWXXzs5t1VxS
 
 #### 강사: 고병화
 #### E-mail : digicope@aicore.co.kr
