@@ -5,7 +5,7 @@
 1. https://developers.kakao.com/ 에서 회원 가입
 
 2. 메뉴의 [앱]에 들어가서  우측 상단의 [+앱생성] 클릭하여 앱을 생성
-   앱이름예:  n9n_master
+   앱이름예:  n8n_master
 
 3. 좌측 메뉴의 앱 --> 플랫폼 키 : REST API 키 에서 REST API 키에서 Default Rest API Key 클릭
    REST API 키 수정 페이지에서 카카오 로그인 리다이렉트 URI에 아래 주소 입력
