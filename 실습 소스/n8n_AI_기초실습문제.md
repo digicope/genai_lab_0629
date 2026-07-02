@@ -201,8 +201,8 @@ Manual Trigger → Edit Fields → Google Gemini
 |------|------|
 | **Edit Fields** | `product` = `Gemini` (문자열) |
 | **Google Gemini** | Model: `gemini-2.5-flash` |
-| | Message 1 — Role: `Model`, Content: `당신은 친절한 기술 블로거입니다. 항상 한국어로, 60자 이내로 답합니다.` |
-| | Message 2 — Role: `User`, Content: `={{ $json.product + '이 무엇인지 한 줄로 설명해 주세요.' }}` |
+| | Message 1 — Role: `Model`, Prompt: `당신은 친절한 기술 블로거입니다. 항상 한국어로, 60자 이내로 답합니다.` |
+| | Message 2 — Role: `User`, Prompt: `={{ $json.product + '이 무엇인지 한 줄로 설명해 주세요.' }}` |
 
 ### 확인 사항
 
