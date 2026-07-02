@@ -206,7 +206,7 @@ Manual Trigger → Edit Fields → Google Gemini
 
 ### 확인 사항
 
-- [ ] System / User 메시지 2개를 설정했는가?
+- [ ] Model(System) / User 메시지 2개를 설정했는가?
 - [ ] Expression으로 `product` 값을 참조했는가?
 - [ ] 응답이 한국어 한 줄 설명인가?
 
