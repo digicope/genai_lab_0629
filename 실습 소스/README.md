@@ -35,6 +35,13 @@
 
 <br>
 
+#### 장바구니 AI Agent Description :
+```
+Google Sheets에서 찾은 부류코드
+예: 딸기면 200, 고구마면 100 처럼  "숫자 + 00"의 형태
+```
+<br>
+
 #### 장바구니 AI Agent System Message :
 ```
 너는 사용자의 질문에 따라 KAMIS api를 이용하여 현재 농수산물에 대한 정보를 알려 주는 장바구니 AI Agent야.
