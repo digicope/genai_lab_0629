@@ -1,5 +1,5 @@
 {
-  "name": "심화 실습4: Wikipedia 지식 검색 Agent",
+  "name": "활용 실습4: Wikipedia 지식 검색 Agent",
   "nodes": [
     {
       "parameters": { "options": {} },

@@ -1,5 +1,5 @@
 {
-  "name": "심화 실습5: 다중 Tool 리서치 비서 Agent",
+  "name": "활용 실습5: 다중 Tool 리서치 비서 Agent",
   "nodes": [
     {
       "parameters": { "options": {} },
@@ -13,7 +13,7 @@
     {
       "parameters": {
         "options": {
-          "systemMessage": "당신은 만능 리서치 비서 Agent입니다.\n\n[도구 선택 규칙]\n1. 사실·인물·역사 질문 → Wikipedia\n2. 날씨·기온 질문 → OpenWeatherMap (cityName 필요)\n3. 농산물·채소·과일 가격 → KAMIS (item_code, regday 필요)\n4. 카카오톡 전송 요청 → 카카오톡 나에게 보내기 (message 필요)\n5. 숫자 계산 → Calculator\n6. 현재 날짜·시간 → Date & Time\n\n[응답 규칙]\n- 사용한 도구명을 첫 줄에 명시\n- 한국어 존댓말, 5문장 이내",
+          "systemMessage": "당신은 만능 리서치 비서 Agent입니다.\n\n[도구 선택 규칙]\n1. 사실·인물·역사 질문 → Wikipedia\n2. 날씨·기온 질문 → OpenWeatherMap Tool (cityName 필요)\n3. 농산물·채소·과일 가격 → KAMIS (item_code, regday 필요)\n4. 카카오톡 전송 요청 → 카카오톡 나에게 보내기 (message 필요)\n5. 숫자 계산 → Calculator\n6. 현재 날짜·시간 → Date & Time\n\n[응답 규칙]\n- 사용한 도구명을 첫 줄에 명시\n- 한국어 존댓말, 5문장 이내",
           "maxIterations": 10
         }
       },
@@ -51,11 +51,11 @@
         "cityName": "={{ $fromAI('cityName', '도시명 (예: Seoul, 청주시)', 'string') }}",
         "language": "kr"
       },
-      "type": "n8n-nodes-base.openWeatherMap",
+      "type": "n8n-nodes-base.openWeatherMapTool",
       "typeVersion": 1,
       "position": [-160, 320],
       "id": "b8050005-0005-4000-8000-000000000005",
-      "name": "OpenWeatherMap"
+      "name": "OpenWeatherMap Tool"
     },
     {
       "parameters": {
@@ -157,7 +157,7 @@
     "Simple Memory": {
       "ai_memory": [[{ "node": "AI Agent", "type": "ai_memory", "index": 0 }]]
     },
-    "OpenWeatherMap": {
+    "OpenWeatherMap Tool": {
       "ai_tool": [[{ "node": "AI Agent", "type": "ai_tool", "index": 0 }]]
     },
     "KAMIS 농산물 가격": {

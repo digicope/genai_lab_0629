@@ -1,5 +1,5 @@
 {
-  "name": "심화 실습3: Structured Output 문의 분류 Agent",
+  "name": "활용 실습3: Structured Output 문의 분류 Agent",
   "nodes": [
     {
       "parameters": { "options": {} },

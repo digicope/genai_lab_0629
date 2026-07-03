@@ -23,16 +23,16 @@
 
 1. n8n → **Credentials** → **Add Credential**
 2. **Google Gemini(PaLM) API** 검색 후 선택 → API Key 입력 후 저장
-3. **OpenWeatherMap** 노드 → **OpenWeatherMap API** Credential 연결 (기존 실습 Credential 재사용)
+3. **OpenWeatherMap Tool** 노드 → **OpenWeatherMap API** Credential 연결 (기존 실습 Credential 재사용)
 4. Import한 답안의 **HTTP Request Tool** 노드에서 아래 값을 본인 키로 교체:
    - **KAMIS 농산물 가격** → Query Parameter `p_cert_key`, `p_cert_id`
 5. **카카오톡 나에게 보내기** Tool → **OAuth2 API** Credential 연결 (Scope: `talk_message`)
 
 Import한 답안 워크플로우의 **Google Gemini Chat Model** 서브노드에 Credential을 연결하세요.
 
-### 기초 vs 심화 실습 비교
+### 기초 vs 활용 실습 비교
 
-| 구분 | AI Agent 기초 실습 | AI Agent 심화 실습 (이번) |
+| 구분 | AI Agent 기초 실습 | AI Agent 활용 실습 (이번) |
 |------|-------------------|--------------------------|
 | Tool | Calculator, Date & Time | **HTTP Request, Code, Wikipedia** |
 | 출력 | 자유 텍스트 | **Structured JSON** 포함 |
@@ -44,7 +44,7 @@ Import한 답안 워크플로우의 **Google Gemini Chat Model** 서브노드에
 ### 이번 실습에서 배우는 것
 
 - **HTTP Request Tool** — Agent가 REST API를 직접 호출
-- **앱 노드 as Tool** — OpenWeatherMap 등 n8n 내장 노드를 Agent Tool로 연결
+- **앱 노드 as Tool** — OpenWeatherMap Tool 등 n8n 내장 Tool 노드를 Agent에 연결
 - **Code Tool** — JavaScript로 커스텀 비즈니스 로직 구현
 - **Structured Output Parser** — Agent 응답을 JSON 스키마로 강제
 - **Wikipedia Tool** — 실시간 지식 검색
@@ -62,6 +62,7 @@ Import한 답안 워크플로우의 **Google Gemini Chat Model** 서브노드에
 | **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: 실습별 상이 |
 | **AI Agent — Prompt Source** | Chat 실습: **Connected Chat Trigger node** |
 | **Simple Memory** (해당 실습) | Session Key: `={{ $json.sessionId }}` |
+| **OpenWeatherMap Tool** (실습 1·5·6·7·8) | 노드 타입: `n8n-nodes-base.openWeatherMapTool` — 일반 OpenWeatherMap 노드가 아님 |
 
 > **모델명 주의:** n8n에서 `models/gemini-3.5-flash`로 표시됩니다. Google AI Studio에서 해당 모델이 보이지 않으면 최신 n8n으로 업데이트하거나, 사용 가능한 최신 Flash 모델로 교체하세요.
 
@@ -71,21 +72,21 @@ Import한 답안 워크플로우의 **Google Gemini Chat Model** 서브노드에
 
 ### 목표
 
-n8n **내장 OpenWeatherMap 노드**와 **HTTP Request Tool** 2개를 Agent에 연결해, **날씨**, **KAMIS 농산물 가격**, **카카오톡 나에게 보내기**를 처리합니다.
+n8n **OpenWeatherMap Tool** 노드와 **HTTP Request Tool** 2개를 Agent에 연결해, **날씨**, **KAMIS 농산물 가격**, **카카오톡 나에게 보내기**를 처리합니다.
 
 ### 요구사항
 
 ```
 When chat message received → AI Agent
                            ↑    ↑    ↑
-              Google Gemini   OpenWeatherMap (앱 노드)
+              Google Gemini   OpenWeatherMap Tool
                               KAMIS (HTTP Request Tool)
                               카카오톡 (HTTP Request Tool)
 ```
 
 | 노드 | 설정 |
 |------|------|
-| **OpenWeatherMap** (앱 노드) | Operation: **Current Weather** (기본) |
+| **OpenWeatherMap Tool** | Operation: **Current Weather** (기본) |
 | | City Name: `={{ $fromAI('cityName', '도시명 (예: Seoul, 청주시)', 'string') }}` |
 | | Language: `kr` |
 | | **OpenWeatherMap API** Credential 연결 |
@@ -120,7 +121,7 @@ When chat message received → AI Agent
 당신은 한국어 생활 정보 Agent입니다.
 
 [도구 선택]
-- 날씨·기온 질문 → OpenWeatherMap 노드 (cityName 필요)
+- 날씨·기온 질문 → OpenWeatherMap Tool (cityName 필요)
 - 농산물·채소·과일 가격 → KAMIS 농산물 가격 (item_code, regday 필요)
   ※ "어제", "최근"이면 regday를 YYYY-MM-DD로 계산해 전달
 - 카카오톡 전송 요청 → 카카오톡 나에게 보내기 (message 필요)
@@ -152,7 +153,7 @@ When chat message received → AI Agent
 
 ### 확인 사항
 
-- [ ] **OpenWeatherMap** 노드가 Agent **Tool** 슬롯에 연결되었는가?
+- [ ] **OpenWeatherMap Tool** 노드가 Agent **Tool** 슬롯에 연결되었는가?
 - [ ] HTTP Request Tool **2개**(KAMIS, 카카오톡)가 Agent에 연결되었는가?
 - [ ] OpenWeatherMap **Credential**, KAMIS `p_cert_key`/`p_cert_id`를 설정했는가?
 - [ ] 카카오톡 Tool에 OAuth2 Credential이 연결되었는가?
@@ -162,8 +163,8 @@ When chat message received → AI Agent
 
 ### 힌트
 
-- OpenWeatherMap은 **HTTP Request Tool이 아닌 n8n 내장 노드**를 Agent Tool 슬롯에 연결합니다
-- Agent에 Tool 추가 시 노드 검색: `OpenWeatherMap` → AI Agent의 **Tool** 영역에 드래그
+- OpenWeatherMap은 일반 노드가 아닌 **OpenWeatherMap Tool** 노드를 Agent Tool 슬롯에 연결합니다
+- Agent에 Tool 추가 시 노드 검색: `OpenWeatherMap` → **OpenWeatherMap Tool** 선택 후 AI Agent의 **Tool** 영역에 드래그
 - City Name에 `$fromAI('cityName', ...)` 를 넣으면 Agent가 질문에서 도시명을 자동 추출합니다
 - OpenWeatherMap·카카오톡 Credential 설정은 `OpenWeatherMap-카카오톡API 호출.json` 워크플로우를 참고하세요
 - KAMIS `p_regday`는 **하루 전 날짜**를 쓰면 데이터가 잘 조회됩니다 (`Google Sheets에서 찾은 부류코드.txt` 참고)
@@ -352,14 +353,14 @@ When chat message received → AI Agent
 
 ### 목표
 
-**OpenWeatherMap + KAMIS + 카카오톡 + Wikipedia + Calculator + Date & Time + Memory** 7개 Tool을 결합한 **리서치 비서 Agent**를 만듭니다.
+**OpenWeatherMap Tool + KAMIS + 카카오톡 + Wikipedia + Calculator + Date & Time + Memory** 7개 Tool을 결합한 **리서치 비서 Agent**를 만듭니다.
 
 ### 요구사항
 
 ```
 When chat message received → AI Agent
                            ↑    ↑    ↑    ↑    ↑    ↑    ↑
-              Google Gemini   Memory   OpenWeatherMap   KAMIS
+              Google Gemini   Memory   OpenWeatherMap Tool   KAMIS
                                     카카오톡   Wikipedia   Calculator   Date & Time
 ```
 
@@ -367,7 +368,7 @@ When chat message received → AI Agent
 |------|------|
 | **AI Agent** | Max Iterations: `10` |
 | | System Message: 아래 내용 |
-| **OpenWeatherMap** | City Name: `={{ $fromAI('cityName', '도시명', 'string') }}`, Language: `kr`, Credential 연결 |
+| **OpenWeatherMap Tool** | City Name: `={{ $fromAI('cityName', '도시명', 'string') }}`, Language: `kr`, Credential 연결 |
 | **KAMIS 농산물 가격** | 실습 1과 동일 (HTTP Request Tool) |
 | **카카오톡 나에게 보내기** | 실습 1과 동일 (HTTP Request Tool) |
 | **Simple Memory** | Context: `15` |
@@ -380,7 +381,7 @@ When chat message received → AI Agent
 
 [도구 선택 규칙]
 1. 사실·인물·역사 질문 → Wikipedia
-2. 날씨·기온 질문 → OpenWeatherMap (cityName 필요)
+2. 날씨·기온 질문 → OpenWeatherMap Tool (cityName 필요)
 3. 농산물·채소·과일 가격 → KAMIS (item_code, regday 필요)
 4. 카카오톡 전송 요청 → 카카오톡 나에게 보내기 (message 필요)
 5. 숫자 계산 → Calculator
@@ -414,9 +415,9 @@ When chat message received → AI Agent
 ### 확인 사항
 
 - [ ] 7개 Tool + Memory가 모두 연결되었는가?
-- [ ] OpenWeatherMap Credential, KAMIS·카카오톡 키/Credential 설정 완료
+- [ ] OpenWeatherMap Tool Credential, KAMIS·카카오톡 키/Credential 설정 완료
 - [ ] 1번: Date & Time 사용
-- [ ] 2번: OpenWeatherMap 사용 + 기온·날씨 응답
+- [ ] 2번: OpenWeatherMap Tool 사용 + 기온·날씨 응답
 - [ ] 3번: Memory로 이전 시각 기억
 
 ---
@@ -425,21 +426,24 @@ When chat message received → AI Agent
 
 ### 목표
 
-**Max Iterations**와 **다중 Tool**을 활용해, 한 번의 질문에 **여러 도구를 연쇄 호출**하는 복합 추론 Agent를 만듭니다.
+**Max Iterations**와 **다중 Tool**을 활용해, 한 번의 질문에 **여러 도구를 연쇄 호출**하는 복합 추론 Agent를 만듭니다. 실습 1과 동일한 **OpenWeatherMap Tool · KAMIS · 카카오톡** API를 포함합니다.
 
 ### 요구사항
 
 ```
 When chat message received → AI Agent (Max Iterations: 12)
-                           ↑    ↑    ↑    ↑
-              Google Gemini   Memory   Calculator   Date & Time
-                                         Wikipedia
+                           ↑    ↑    ↑    ↑    ↑    ↑    ↑
+              Google Gemini   Memory   OpenWeatherMap Tool   KAMIS   카카오톡
+                                    Calculator   Date & Time   Wikipedia
 ```
 
 | 노드 | 설정 |
 |------|------|
 | **AI Agent** | Max Iterations: `12` |
 | | System Message: 아래 내용 |
+| **OpenWeatherMap Tool** | 실습 1과 동일 (`$fromAI` cityName, Credential 연결) |
+| **KAMIS 농산물 가격** | 실습 1과 동일 (HTTP Request Tool) |
+| **카카오톡 나에게 보내기** | 실습 1과 동일 (HTTP Request Tool) |
 | **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.25` |
 
 **System Message**
@@ -448,30 +452,36 @@ When chat message received → AI Agent (Max Iterations: 12)
 당신은 해외여행 경비 플래너 Agent입니다.
 
 [작업 순서]
-1. 목적지 정보가 필요하면 Wikipedia로 검색
-2. 현재 날짜는 Date & Time으로 확인
-3. 경비 계산은 Calculator로 수행 (환율은 사용자가 제공한 값 사용)
+1. 목적지 정보 → Wikipedia
+2. 목적지 날씨 → OpenWeatherMap Tool (cityName 필요)
+3. 현재 날짜 → Date & Time
+4. 경비 계산 → Calculator (사용자 제공 금액 기준)
+5. 식재료 가격 참고 필요 시 → KAMIS (item_code, regday)
+6. 요약 전송 요청 시 → 카카오톡 나에게 보내기 (message)
 
 [응답 형식]
 📍 목적지: (한 줄)
+🌤️ 날씨: (OpenWeatherMap Tool 결과)
 📅 기준일: (Date & Time 결과)
 💰 예상 경비: (Calculator 결과, 원화)
-📝 참고: (Wikipedia에서 얻은 팁 1문장)
+📝 참고: (Wikipedia 팁 1문장)
 ```
 
 ### 테스트 메시지
 
 ```
 도쿄 3박 4일 여행인데, 1일 숙박비 12만 원, 1일 식비 5만 원, 교통비 1일 2만 원이야.
-오늘 날짜 기준으로 총 경비를 계산하고, 도쿄에 대해 Wikipedia로 간단히 알려줘.
+오늘 날짜 기준으로 총 경비를 계산하고, 도쿄 날씨와 Wikipedia 정보를 알려줘.
 ```
 
 ### 확인 사항
 
+- [ ] OpenWeatherMap Tool Credential, KAMIS·카카오톡 키/Credential 설정 완료
 - [ ] Calculator로 총 경비 **64만 원** (3박 숙박 36만 + 4일 식비 20만 + 4일 교통 8만) 근처 계산
 - [ ] Date & Time으로 오늘 날짜 표시
+- [ ] OpenWeatherMap Tool으로 도쿄 날씨 포함
 - [ ] Wikipedia로 도쿄 관련 정보 포함
-- [ ] 실행 로그에 **3개 이상 Tool 호출** 확인
+- [ ] 실행 로그에 **4개 이상 Tool 호출** 확인
 
 ### 힌트
 
@@ -484,14 +494,15 @@ When chat message received → AI Agent (Max Iterations: 12)
 
 ### 목표
 
-**Webhook** 트리거로 외부에서 메시지를 받아 Agent가 처리하고, **JSON 응답**을 반환합니다.
+**Webhook** 트리거로 외부에서 메시지를 받아 Agent가 처리하고, **JSON 응답**을 반환합니다. 실습 1과 동일한 **OpenWeatherMap Tool · KAMIS · 카카오톡** API를 Webhook으로 호출합니다.
 
 ### 요구사항
 
 ```
 Webhook (POST) → AI Agent → Respond to Webhook
                       ↑
-         Google Gemini + Calculator + Date & Time
+         Google Gemini + OpenWeatherMap Tool + KAMIS + 카카오톡
+                         + Calculator + Date & Time
 ```
 
 | 노드 | 설정 |
@@ -501,6 +512,9 @@ Webhook (POST) → AI Agent → Respond to Webhook
 | **AI Agent** | Prompt Source: **Define below** |
 | | Text: `={{ $json.body.message }}` |
 | | System Message: 아래 내용 |
+| **OpenWeatherMap Tool** | 실습 1과 동일 (`$fromAI` cityName, Credential 연결) |
+| **KAMIS 농산물 가격** | 실습 1과 동일 (HTTP Request Tool) |
+| **카카오톡 나에게 보내기** | 실습 1과 동일 (HTTP Request Tool) |
 | **Respond to Webhook** | Respond With: `JSON` |
 | | Response Body: `={{ { "reply": $json.output, "timestamp": $now.toISO() } }}` |
 | **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.3` |
@@ -509,9 +523,15 @@ Webhook (POST) → AI Agent → Respond to Webhook
 
 ```
 당신은 Webhook API용 업무 비서입니다.
-- 계산 질문 → Calculator 사용
-- 시간 질문 → Date & Time 사용
-- 3문장 이내 한국어 존댓말로 답변
+
+[도구 선택]
+- 날씨·기온 → OpenWeatherMap Tool (cityName)
+- 농산물 가격 → KAMIS (item_code, regday)
+- 카카오톡 전송 → 카카오톡 나에게 보내기 (message)
+- 계산 → Calculator
+- 시간 → Date & Time
+
+3문장 이내 한국어 존댓말로 답변하세요.
 ```
 
 ### 테스트 방법
@@ -519,17 +539,29 @@ Webhook (POST) → AI Agent → Respond to Webhook
 1. 워크플로우 **Activate** (또는 Test URL 사용)
 2. 아래 curl 명령 실행 (Test URL로 교체)
 
+**계산 테스트**
+
 ```bash
 curl -X POST "https://YOUR-N8N-URL/webhook-test/agent-assistant" \
   -H "Content-Type: application/json" \
   -d "{\"message\": \"연봉 6,000만 원을 12로 나누면 월급이 얼마야?\"}"
 ```
 
+**날씨 테스트**
+
+```bash
+curl -X POST "https://YOUR-N8N-URL/webhook-test/agent-assistant" \
+  -H "Content-Type: application/json" \
+  -d "{\"message\": \"청주시 지금 날씨와 기온 알려줘.\"}"
+```
+
 ### 확인 사항
 
 - [ ] Webhook → Agent → Respond to Webhook 연결이 되어 있는가?
+- [ ] OpenWeatherMap Tool Credential, KAMIS·카카오톡 키/Credential 설정 완료
 - [ ] JSON 응답에 `reply`와 `timestamp` 필드가 있는가?
-- [ ] `reply`에 월급 **500만 원** 근처 답변이 포함되는가?
+- [ ] 계산 테스트: `reply`에 월급 **500만 원** 근처 답변
+- [ ] 날씨 테스트: `reply`에 기온·날씨 상태 포함
 
 ### 힌트
 
@@ -549,7 +581,7 @@ curl -X POST "https://YOUR-N8N-URL/webhook-test/agent-assistant" \
 ```
 When chat message received → AI Agent (+ Output Parser)
                            ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑
-              Google Gemini   Memory   OpenWeatherMap   KAMIS   카카오톡
+              Google Gemini   Memory   OpenWeatherMap Tool   KAMIS   카카오톡
                                     OrderStatus   Wikipedia   Calculator   Date & Time
                                               Structured Output Parser
 ```
@@ -559,7 +591,7 @@ When chat message received → AI Agent (+ Output Parser)
 | **AI Agent** | Max Iterations: `15` |
 | | Require Specific Output Format: **활성화** |
 | | System Message: 아래 내용 |
-| **OpenWeatherMap** | 실습 1과 동일 (`$fromAI` cityName, Credential 연결) |
+| **OpenWeatherMap Tool** | 실습 1과 동일 (`$fromAI` cityName, Credential 연결) |
 | **KAMIS 농산물 가격** | 실습 1과 동일 (HTTP Request Tool) |
 | **카카오톡 나에게 보내기** | 실습 1과 동일 (HTTP Request Tool) |
 | **Code Tool** | Name: `OrderStatus` — 주문번호(문자열) 입력 시 상태 반환 (시뮬레이션) |
@@ -598,7 +630,7 @@ return statuses[orderId] || `주문번호 ${orderId}를 찾을 수 없습니다.
 [도구 매핑]
 - 주문 조회 (ORD-xxxx) → OrderStatus
 - 상품/회사 정보 → Wikipedia
-- 날씨·기온 → OpenWeatherMap (cityName)
+- 날씨·기온 → OpenWeatherMap Tool (cityName)
 - 농산물·식재료 가격 → KAMIS (item_code, regday)
 - 카카오톡 알림 전송 → 카카오톡 나에게 보내기 (message)
 - 금액 계산 → Calculator
@@ -633,7 +665,7 @@ return statuses[orderId] || `주문번호 ${orderId}를 찾을 수 없습니다.
 ### 확인 사항
 
 - [ ] 9개 Tool + Memory + Parser가 모두 연결되었는가?
-- [ ] OpenWeatherMap Credential, KAMIS·카카오톡 키/Credential 설정 완료
+- [ ] OpenWeatherMap Tool Credential, KAMIS·카카오톡 키/Credential 설정 완료
 - [ ] 1번: OrderStatus → "배송중" + JSON `intent: order_inquiry`
 - [ ] 2번: KAMIS Tool → 딸기 가격 데이터 응답
 - [ ] 3번: Memory → ORD-1001 기억
@@ -645,13 +677,13 @@ return statuses[orderId] || `주문번호 ${orderId}를 찾을 수 없습니다.
 
 | 실습 | 배점 | 핵심 평가 |
 |------|------|-----------|
-| 실습 1 | 10점 | OpenWeatherMap 앱 노드 + KAMIS·카카오톡 HTTP Tool |
+| 실습 1 | 10점 | OpenWeatherMap Tool + KAMIS·카카오톡 HTTP Tool |
 | 실습 2 | 10점 | Code Tool JavaScript 작성 |
 | 실습 3 | 15점 | Structured Output Parser + Agent |
 | 실습 4 | 10점 | Wikipedia Tool 사실 검색 |
-| 실습 5 | 15점 | 7개 Tool(OpenWeatherMap·KAMIS·카카오톡 포함) 오케스트레이션 |
-| 실습 6 | 15점 | 복합 추론 + Max Iterations |
-| 실습 7 | 10점 | Webhook + Agent API 연동 |
+| 실습 5 | 15점 | 7개 Tool(OpenWeatherMap Tool·KAMIS·카카오톡 포함) 오케스트레이션 |
+| 실습 6 | 15점 | 복합 추론 + OpenWeatherMap Tool·KAMIS·카카오톡 연쇄 호출 |
+| 실습 7 | 10점 | Webhook + OpenWeatherMap Tool·KAMIS·카카오톡 API 연동 |
 | 실습 8 | 15점 | 종합 멀티 Tool(실습1 API 통일) + 구조화 출력 |
 | **합계** | **100점** | |
 
@@ -701,7 +733,7 @@ A. `p_regday`를 **어제 또는 최근 영업일**로 설정했는지, `p_item_
 A. OAuth2 Credential을 **재연결(Connect)** 하세요. Scope에 `talk_message`가 포함되어 있는지, 카카오 개발자 콘솔에서 '카카오톡 메시지 전송' 동의 항목이 활성화되었는지 확인하세요.
 
 **Q. OpenWeatherMap에서 도시를 찾지 못해요.**  
-A. OpenWeatherMap 노드의 **City Name**에 `$fromAI`가 설정되었는지 확인하세요. `청주시` 대신 `Cheongju` 또는 `Seoul`처럼 영문 도시명을 시도해 보세요. **OpenWeatherMap API** Credential이 연결되어 있는지도 확인하세요.
+A. **OpenWeatherMap Tool** 노드의 **City Name**에 `$fromAI`가 설정되었는지 확인하세요. `청주시` 대신 `Cheongju` 또는 `Seoul`처럼 영문 도시명을 시도해 보세요. **OpenWeatherMap API** Credential이 연결되어 있는지도 확인하세요.
 
 **Q. gemini-3.5-flash 모델을 찾을 수 없어요.**  
 A. Google AI Studio에서 사용 가능한 최신 Flash 모델명을 확인 후 Chat Model 노드에서 교체하세요.

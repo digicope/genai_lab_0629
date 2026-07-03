@@ -1,5 +1,5 @@
 {
-  "name": "심화 실습1: OpenWeatherMap·KAMIS·카카오톡 API Agent",
+  "name": "활용 실습1: OpenWeatherMap·KAMIS·카카오톡 API Agent",
   "nodes": [
     {
       "parameters": { "options": {} },
@@ -13,7 +13,7 @@
     {
       "parameters": {
         "options": {
-          "systemMessage": "당신은 한국어 생활 정보 Agent입니다.\n\n[도구 선택]\n- 날씨·기온 질문 → OpenWeatherMap 노드 (cityName 필요)\n- 농산물·채소·과일 가격 → KAMIS 농산물 가격 (item_code, regday 필요)\n  ※ \"어제\", \"최근\"이면 regday를 YYYY-MM-DD로 계산해 전달\n- 카카오톡 전송 요청 → 카카오톡 나에게 보내기 (message 필요)\n\n[규칙]\n- API 도구 없이 추측하지 마세요.\n- 응답은 한국어 존댓말, 3~5문장"
+          "systemMessage": "당신은 한국어 생활 정보 Agent입니다.\n\n[도구 선택]\n- 날씨·기온 질문 → OpenWeatherMap Tool (cityName 필요)\n- 농산물·채소·과일 가격 → KAMIS 농산물 가격 (item_code, regday 필요)\n  ※ \"어제\", \"최근\"이면 regday를 YYYY-MM-DD로 계산해 전달\n- 카카오톡 전송 요청 → 카카오톡 나에게 보내기 (message 필요)\n\n[규칙]\n- API 도구 없이 추측하지 마세요.\n- 응답은 한국어 존댓말, 3~5문장"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -38,11 +38,11 @@
         "cityName": "={{ $fromAI('cityName', '도시명 (예: Seoul, 청주시)', 'string') }}",
         "language": "kr"
       },
-      "type": "n8n-nodes-base.openWeatherMap",
+      "type": "n8n-nodes-base.openWeatherMapTool",
       "typeVersion": 1,
       "position": [-160, 320],
       "id": "b8010004-0004-4000-8000-000000000004",
-      "name": "OpenWeatherMap"
+      "name": "OpenWeatherMap Tool"
     },
     {
       "parameters": {
@@ -117,7 +117,7 @@
     "Google Gemini Chat Model": {
       "ai_languageModel": [[{ "node": "AI Agent", "type": "ai_languageModel", "index": 0 }]]
     },
-    "OpenWeatherMap": {
+    "OpenWeatherMap Tool": {
       "ai_tool": [[{ "node": "AI Agent", "type": "ai_tool", "index": 0 }]]
     },
     "KAMIS 농산물 가격": {

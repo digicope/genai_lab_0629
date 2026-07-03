@@ -1,5 +1,5 @@
 {
-  "name": "심화 실습2: Code Tool 부가세 계산 Agent",
+  "name": "활용 실습2: Code Tool 부가세 계산 Agent",
   "nodes": [
     {
       "parameters": { "options": {} },
