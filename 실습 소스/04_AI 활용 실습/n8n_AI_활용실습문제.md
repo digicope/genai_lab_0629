@@ -294,7 +294,7 @@ Manual Trigger → Edit Fields → Basic LLM Chain → Switch
 | **Edit Fields** | `review` = `제품 품질은 좋은데 배송이 너무 늦었습니다.` |
 | **Basic LLM Chain** | Require Specific Output Format: **ON** |
 | **Structured Output Parser** | JSON Example: `{"sentiment": "negative"}` |
-| **Switch** | Rules (3개): `{{ $json.output.sentiment }}` is equal to `positive` / `negative` / `neutral` |
+| **Switch** | Rules -> Routing Rules (3개 가각 설정): `{{ $json.output.sentiment }}` is equal to `positive` / `negative` / `neutral` |
 | **Edit Fields** (positive) | `message` = `😊 긍정 리뷰입니다: {{ $('Edit Fields').item.json.review }}` |
 | **Edit Fields1** (negative) | `message` = `😞 부정 리뷰입니다: {{ $('Edit Fields').item.json.review }}` |
 | **Edit Fields2** (neutral) | `message` = `😐 중립 리뷰입니다: {{ $('Edit Fields').item.json.review }}` |
