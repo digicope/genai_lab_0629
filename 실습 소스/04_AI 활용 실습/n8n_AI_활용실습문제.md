@@ -128,7 +128,7 @@ Manual Trigger → HTTP Request → Basic LLM Chain → Edit Fields
 **Prompt (User Message) 내용**
 
 ```
-아래 영문 게시글을 한국어로 정확히 2문장으로 요약하세요.
+아래 게시글을 한국어로 정확히 2문장으로 요약하세요.
 
 제목: {{ $json.title }}
 본문: {{ $json.body }}
