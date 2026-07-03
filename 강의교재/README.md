@@ -13,6 +13,10 @@ https://github.com/ggplab/n8n-playbook
 https://www.upstage.ai/
 <br>
 
+#### Upstage 모델 사용법 공식 문서 :
+https://upflow.upstage.ai/courses
+<br>
+
 #### Upstage Solar API 키 발급 사이트 :
 https://console.upstage.ai/api-keys
 <br>
