@@ -58,3 +58,12 @@ Google Sheets에서 찾은 부류코드
 2. 카드번호
 3. 총금액
 ```
+<br>
+
+```
+{
+    "timestamp": "YYYY-MM-DD HH:MM:SS",
+	"amt": "총 금액",
+	"card": "카드번호"
+}
+```
