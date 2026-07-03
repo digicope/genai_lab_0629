@@ -13,7 +13,7 @@ https://github.com/ggplab/n8n-playbook
 https://www.upstage.ai/
 <br>
 
-#### Upstage 모델 사용법 공식 문서 :
+#### Upstage 모델 n8n 사용법 공식 문서 :
 https://upflow.upstage.ai/courses
 <br>
 
