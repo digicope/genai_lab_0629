@@ -37,7 +37,7 @@
 
 #### 장바구니 AI Agent Description :
 ```
-Google Sheets에서 찾은 부류코드
+Google Sheets에서 찾은 품목코드
 예: 딸기면 200, 고구마면 100 처럼  "숫자 + 00"의 형태
 ```
 <br>
