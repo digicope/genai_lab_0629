@@ -297,7 +297,7 @@ Manual Trigger → Edit Fields → Basic LLM Chain → Switch
 | **Switch** | Rules -> Routing Rules (3개 가각 설정): `{{ $json.output.sentiment }}` is equal to `positive` / `negative` / `neutral` |
 | **Edit Fields** (positive) | `message` = `{{ '😊 긍정 리뷰입니다: ' + $('Edit Fields').item.json.review }}` |
 | **Edit Fields1** (negative) | `message` = `{{ '😞 부정 리뷰입니다: ' + $('Edit Fields').item.json.review }}` |
-| **Edit Fields2** (neutral) | `message` = `{{ '😐 중립 리뷰입니다: ' $('Edit Fields').item.json.review }}` |
+| **Edit Fields2** (neutral) | `message` = `{{ '😐 중립 리뷰입니다: ' + $('Edit Fields').item.json.review }}` |
 
 **Prompt (User Message) 내용**
 
