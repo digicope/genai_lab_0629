@@ -60,6 +60,7 @@ Google Sheets에서 찾은 부류코드
 ```
 <br>
 
+### JSON Example :
 ```
 {
     "timestamp": "YYYY-MM-DD HH:MM:SS",
