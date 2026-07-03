@@ -1,4 +1,11 @@
 #### 실습 소스
+<br>
+
+#### Upstage API 인증 URL :
+```
+Solar url : https://api.upstage.ai/v1/solar
+Document OCR url : https://api.upstage.ai/v1/document-digitization
+```
 
 <br>
 
