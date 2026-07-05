@@ -49,3 +49,13 @@ Password : 예) N8n12345
 9. I want to receive security and product updates 는 언체크된 상태로 [Next]버튼을
    클릭한다음 설문 화면에 [Get started]를 누른다.
    Get paid features for free (forever) 에서 [skip] 버튼을 누른다
+   n8n이 잘 실행 되는지 확인한다
+
+10 . n8n 종료 방법 Docker Desktop 메뉴에서 실행중인 Container을 Actions의 
+     Stop(네모모양) 버튼을 클릭하면 종료된다
+
+11. n8n 종료후 다시 실행 할때는 Docker Desktop을 실행시키고
+    왼쪽 메뉴에서 [Containers]를 누르면 미리 생성해놓은 Container 목록이 
+   나타나는데 목록에서  Name n8nio/n8n 찾아 Actions의 Run 버튼을 클릭한다
+   Actions 버튼이 네모 모양으로 변경되면 옆의 Ports에 있는 "5678:5678"을 클릭하면
+   웹브라우저가 열리고 n8n을 실행해볼수있다
