@@ -84,9 +84,7 @@ Google Sheets에서 찾은 부류코드
 ```
 n8n의 HTTP Request 노드를 이용해 코스피지수를 가져올 거야.
 첨부된 자료를 이용해서 코스피지수를 가져오기 위한 HTTP 요청 정보를 cURL 형식으로 만들어 줘.
-```
-<br>
-
+``` <br>
 ```
 curl -X GET "https://apis.data.go.kr/1160100/service/GetMarketIndexInfoService/getStockMarketIndex?serviceKey=YOUR_SERVICE_KEY&numOfRows=1&pageNo=1&resultType=json&idxNm=%EC%BD%94%EC%8A%A4%ED%94%BC"
 ```
@@ -95,9 +93,7 @@ curl -X GET "https://apis.data.go.kr/1160100/service/GetMarketIndexInfoService/g
 ```
 n8n의 HTTP Request 노드를 이용해 주식 종목 가격을 가져올 거야.
 종목명은 {{$json.name}}에 있어. 첨부된 자료를 이용해서 종목 가격을 가져오기 위한 http 요청을 cURL 형식으로 만들어줘.
-```
-<br>
-
+``` <br>
 ```
 curl -X GET "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey=YOUR_SERVICE_KEY&numOfRows=1&pageNo=1&resultType=json&itmsNm={{$json.name}}"
 ```
