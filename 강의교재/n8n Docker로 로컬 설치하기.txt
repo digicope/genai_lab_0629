@@ -8,6 +8,7 @@ Docker Desktop Installer.exe 을 다운 받아 설치하고 윈도우 재 부팅
 
 2. Windows Powershell (32bit가 아닌 64bit용)을 실행하고 아래 명령을 입력하여 WSL을 설치한다(설치후 Linux용 하위 시스템 시작 화면이 나오면  창을 닫아 종료한다)
 wsl --install
+wsl --update
 
 3. Docker Desktop을 실행시키고 상단의 검색창에 n8n을 입력한다.
 n8nio/n8n 공식 이미지를 선택하고 [Pull]버튼을 누른다.(약간 다운로드 시간 소요)
