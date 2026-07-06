@@ -99,7 +99,7 @@ When chat message received → AI Agent
 | | Query: `p_regday` = `={{ $fromAI('regday', '조회일 YYYY-MM-DD', 'string') }}` |
 | | Query: `p_cert_key`, `p_cert_id` = **본인 KAMIS 인증 정보** |
 | | Query: `p_returntype` = `json` |
-| | Tool Description: `KAMIS에서 농산물 소매 가격을 조회합니다. item_code와 regday가 필요합니다.` |
+| | Tool Description: `KAMIS에서 농산물 소매 가격을 조회합니다. item_code는 부류코드(딸기:200, 고구마:100, 배추:212), regday는 조회일 YYYY-MM-DD입니다.` |
 | **HTTP Request Tool (카카오톡)** | Method: `POST` |
 | | URL: `https://kapi.kakao.com/v2/api/talk/memo/default/send` |
 | | Authentication: **OAuth2 API** (카카오 Credential) |
