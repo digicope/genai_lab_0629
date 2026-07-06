@@ -106,7 +106,7 @@ When chat message received → AI Agent
 | | Body: `template_object` = JSON (`text`에 `$fromAI('message', ...)` 사용) |
 | | Tool Description: `카카오톡 나에게 보내기로 텍스트 메시지를 전송합니다.` |
 | **AI Agent** | System Message: 아래 내용 |
-| **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.2` |
+| **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, 날짜가 틀릴경우 모델을 gemin-flash-latest로 변경, Temperature: `0.2` |
 
 **KAMIS 부류코드 참고** (`Google Sheets에서 찾은 부류코드.txt`)
 
