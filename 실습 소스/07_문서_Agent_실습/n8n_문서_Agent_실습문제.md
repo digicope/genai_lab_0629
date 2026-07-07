@@ -281,10 +281,7 @@ Webhook → Edit Fields → Respond to Webhook
 **방법 1 — curl (터미널)**
 
 ```bash
-curl -X POST "https://YOUR-INSTANCE.app.n8n.cloud/webhook-test/pdf-agent" \
-  -F "file=@./sample.pdf" \
-  -F "email=your-email@example.com" \
-  -F "title=2026년 1분기 실적 보고서"
+curl.exe -X POST "https://digicope.app.n8n.cloud/webhook-test/pdf-agent" -F "file=@sample.pdf" -F "email=your-email@example.com" -F "title=2026년 1분기 실적 보고서"
 ```
 
 **방법 2 — Postman / Insomnia**
