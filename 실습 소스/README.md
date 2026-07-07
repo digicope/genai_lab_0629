@@ -96,16 +96,17 @@ curl -X GET "https://apis.data.go.kr/1160100/service/GetMarketIndexInfoService/g
 n8n의 HTTP Request 노드를 이용해 주식 종목 가격을 가져올 거야.
 종목명은 {{$json.name}}에 있어. 첨부된 자료를 이용해서 종목 가격을 가져오기 위한 http 요청을 cURL 형식으로 만들어줘.
 ```
-
-
-```
-Upstage 
-Solar url : https://api.upstage.ai/v1/solar
-Document OCR url : https://api.upstage.ai/v1/document-digitization
-```
 <br>
 
 ```
 curl -X GET "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey=YOUR_SERVICE_KEY&numOfRows=1&pageNo=1&resultType=json&itmsNm={{$json.name}}"
 ```
 <br>
+
+
+#### Upstage API URL :
+
+```
+Solar url : https://api.upstage.ai/v1/solar
+Document OCR url : https://api.upstage.ai/v1/document-digitization
+```
