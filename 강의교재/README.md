@@ -44,3 +44,7 @@ https://developers.kakao.com/docs/ko/tutorial/start
 #### 공공데이터 포털 API 인증키 발급 사이트 :
 https://www.data.go.kr/index.do
 <br>
+
+#### Qdrant Vector Store API 키 발급 사이트 :
+https://train.qdrant.dev/
+<br>
