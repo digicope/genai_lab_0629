@@ -4,8 +4,8 @@
 
 ## 목록
 
-| 장 | 워크플로우 | 주요 서비스 | 링크 |
-|----|-----------|------------|------|
+| 장 | 워크플로우 | 주요 서비스 |
+|----|-----------|------------|
 | chap2 | 구글 RSS 피드 뉴스 메일링 | Google News RSS, Gmail | 
 | chap3 | OpenWeatherMap 날씨 알림 | OpenWeatherMap API, Discord |
 | chap4 | 장바구니 — 농산물 가격 AI Agent | Google Gemini, KAMIS API, Google Sheets | 
