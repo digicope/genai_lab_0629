@@ -96,7 +96,8 @@ https://drive.google.com/file/d/1ecz7ywGGq2OZ9T15225yEl3okNvJmaIj/view
 3. **Cloud Provider / Region** 선택 (가까운 리전 권장)
 4. **Create Free Cluster** 클릭
 5. 클러스터 생성 완료까지 대기
-
+6. Open Ckuster UI를 누르고 Collection 메뉴에서 rag_google_drive_docs  이름으로 cluster 생성
+   dimension : 3072, Cosine으로 설정
 > Free Tier는 학습용으로 충분합니다. 신용카드 없이 사용할 수 있습니다.
 
 ### 3) API Key 발급
