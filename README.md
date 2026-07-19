@@ -5,9 +5,6 @@
 https://ict-is.cbist.or.kr/education/view.do?educationKey=401&searchActiveFlag=Y&searchCategory=ai&searchLikeValue=%ED%91%9C%EC%A4%80%ED%98%91%ED%9A%8C&currentPageNo=1&menuKey=79
 <br>
 
-### [충북] :  (2026.06.29 ~ 07.10 , 80Hr)
-https://ict-is.cbist.or.kr/education/view.do?educationKey=400&searchActiveFlag=Y&searchCategory=ai&searchArea=%EC%B6%A9%EB%B6%81&currentPageNo=1&menuKey=79
-<br>
 <br>
 ## 강사 git 주소 :    https://github.com/digicope/genai_lab_0629
 <br>
