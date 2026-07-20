@@ -168,7 +168,7 @@ Manual Trigger → Edit Fields → IF → (true) Edit Fields1
 | 노드                       | 설정                                           |
 | ------------------------ | -------------------------------------------- |
 | **Edit Fields**          | `score` = `75` (숫자 Number 타입)                |
-| **IF**                   | `{{ $json.score }}` **is greater than or equal** `60` |
+| **IF**                   | `{{ $json.score }}` **is greater than or equal to** `60` |
 | **Edit Fields1** (true)  | `result` = `합격`                              |
 | **Edit Fields2** (false) | `result` = `불합격`                             |
 
