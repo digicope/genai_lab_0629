@@ -12,7 +12,7 @@
    https://oauth.n8n.cloud/oauth2/callback
 
 4. 하단 클라이언트 시크릿의 카카오 로그인의 코드 복사해서 메모장에 복사해둔다
-   0BZhVBbr6BKKmHkOv619Y8zbib2IvRZC
+   0BXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
    우측 하단의 [저장]버튼을 클릭한다
 
