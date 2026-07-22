@@ -303,6 +303,7 @@ Manual Trigger → Edit Fields → Basic LLM Chain → Switch
 
 ```
 다음 리뷰의 감정을 분석하세요. sentiment는 positive, negative, neutral 중 하나만 사용하세요.
+리뷰 내용에 긍정 내용이 있어도 부정적인 내용이 조금이라도 있으면 negative로 결정해줘.
 
 리뷰: {{ $json.review }}
 ```
