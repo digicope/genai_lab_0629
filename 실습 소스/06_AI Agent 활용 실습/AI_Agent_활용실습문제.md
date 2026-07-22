@@ -360,6 +360,7 @@ When chat message received → AI Agent
 **OpenWeatherMap Tool + KAMIS + 카카오톡 + Wikipedia + Calculator + Date & Time + Memory** 7개 Tool을 결합한 **리서치 비서 Agent**를 만듭니다.
 
 ### 요구사항
+(KAMIS는 안될 경우 생략!!)
 
 ```
 When chat message received → AI Agent
@@ -433,6 +434,7 @@ When chat message received → AI Agent
 **Max Iterations**와 **다중 Tool**을 활용해, 한 번의 질문에 **여러 도구를 연쇄 호출**하는 복합 추론 Agent를 만듭니다. 실습 1과 동일한 **OpenWeatherMap Tool · KAMIS · 카카오톡** API를 포함합니다.
 
 ### 요구사항
+(KAMIS는 안될 경우 생략!!)
 
 ```
 When chat message received → AI Agent (Max Iterations: 12)
@@ -501,6 +503,7 @@ When chat message received → AI Agent (Max Iterations: 12)
 **Webhook** 트리거로 외부에서 메시지를 받아 Agent가 처리하고, **JSON 응답**을 반환합니다. 실습 1과 동일한 **OpenWeatherMap Tool · KAMIS · 카카오톡** API를 Webhook으로 호출합니다.
 
 ### 요구사항
+(KAMIS는 안될 경우 생략!!)
 
 ```
 Webhook (POST) → AI Agent → Respond to Webhook
