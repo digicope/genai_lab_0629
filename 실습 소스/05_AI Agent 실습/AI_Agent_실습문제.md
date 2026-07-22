@@ -341,7 +341,7 @@ When chat message received → AI Agent
 | **Simple Memory** | Session Key: `={{ $json.sessionId }}`, Context: `15` |
 | **Calculator** | Tool 연결 |
 | **Date & Time** | Tool 연결 |
-| **Google Gemini Chat Model** | Model: `gemini-2.5-flash`, Temperature: `0.3` |
+| **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.3` |
 
 **System Message**
 
