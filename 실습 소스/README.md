@@ -57,10 +57,16 @@ Google Sheets에서 찾은 부류코드
 요즘, 최근이라고 하면 {{ $now }} 날짜 기준으로 하루 전 데이터를 조회해.
 ```
 
-### imprt cURL
+### import cURL
 ```
 curl -X GET "http://www.kamis.or.kr/service/price/xml.do?action=dailyPriceByCategoryList&p_product_cls_code=02&p_country_code=1101&p_regday=2015-10-01&p_convert_kg_yn=N&p_item_category_code=200&p_cert_key=111&p_cert_id=222&p_returntype=xml"
 ```
+
+### 웹브라우저에서 KAMIS GET 요청 테스트 :
+```
+https://www.kamis.or.kr/service/price/xml.do?action=dailyPriceByCategoryList&p_product_cls_code=02&p_country_code=1101&p_regday=2026-07-22&p_item_category_code=200&p_cert_key=______&p_cert_id=____&p_returntype=json
+```
+
 #### AI 영수증 정리봇 System Message :
 ```
 3가지를 정제해
