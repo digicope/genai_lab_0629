@@ -58,7 +58,7 @@ When chat message received → AI Agent
 | 공통 항목 | 설정 |
 |-----------|------|
 | **When chat message received** | 기본 설정 유지 (Chat Trigger) |
-| **Google Gemini Chat Model** | Model: `gemini-2.5-flash`, Temperature: `0.4` |
+| **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.4` |
 | **AI Agent — Prompt Source** | **Connected Chat Trigger node** (또는 Auto-detect input) |
 
 > **중요:** Prompt Source를 `Define below` + `{{ $json.chatInput }}`만 쓰면, 에디터 테스트 채팅에서 **두 번째 메시지부터** 입력이 비는 경우가 있습니다. 실습에서는 **Connected Chat Trigger node**를 사용하세요.
@@ -90,7 +90,7 @@ When chat message received → AI Agent
 |------|------|
 | **When chat message received** | 기본값 |
 | **AI Agent** | Prompt Source: **Connected Chat Trigger node** |
-| **Google Gemini Chat Model** | Model: `gemini-2.5-flash`, Temperature: `0.4` |
+| **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.4` |
 
 ### 테스트 메시지
 
@@ -141,7 +141,7 @@ When chat message received → AI Agent (+ System Message)
 - 모르는 내용은 추측하지 말고 모른다고 말하세요.
 ```
 
-| **Google Gemini Chat Model** | Model: `gemini-2.5-flash`, Temperature: `0.3` |
+| **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.3` |
 
 ### 테스트 메시지
 
@@ -184,7 +184,7 @@ When chat message received → AI Agent
 | **Simple Memory** | Session ID: **Define below** |
 | | Key: `={{ $json.sessionId }}` |
 | | Context Window Length: `10` |
-| **Google Gemini Chat Model** | Model: `gemini-2.5-flash`, Temperature: `0.4` |
+| **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.4` |
 
 ### 테스트 시나리오 (같은 채팅창에서 순서대로)
 
@@ -234,7 +234,7 @@ When chat message received → AI Agent
 | **AI Agent** | System Message: 아래 내용 |
 | **Simple Memory** | Session Key: `={{ $json.sessionId }}`, Context: `10` |
 | **Calculator** | 기본 설정 (Tool 서브노드) |
-| **Google Gemini Chat Model** | Model: `gemini-2.5-flash`, Temperature: `0.2` |
+| **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.2` |
 
 **System Message**
 
@@ -286,8 +286,8 @@ When chat message received → AI Agent
 | **AI Agent** | System Message: 아래 내용 |
 | **Simple Memory** | Session Key: `={{ $json.sessionId }}`, Context: `10` |
 | **Calculator** | 기본 설정 |
-| **Date & Time** | Operation: **Get Current Date and Time** (기본) |
-| **Google Gemini Chat Model** | Model: `gemini-2.5-flash`, Temperature: `0.3` |
+| **Date & Time** | Operation: **Get Current Date and Time** (기본) , Include Current Time 체크 |
+| **Google Gemini Chat Model** | Model: `gemini-3.5-flash`, Temperature: `0.3` |
 
 **System Message**
 
