@@ -67,10 +67,15 @@ curl -X GET "http://www.kamis.or.kr/service/price/xml.do?action=dailyPriceByCate
 https://www.kamis.or.kr/service/price/xml.do?action=dailyPriceByCategoryList&p_product_cls_code=02&p_country_code=1101&p_regday=2026-07-22&p_item_category_code=200&p_cert_key=______&p_cert_id=____&p_returntype=json
 ```
 
-### 명령창에서 KAMIS GET 요청 테스트 :
+### 명령창에서 KAMIS GET 요청 테스트(Windows) :
 ```
 curl -X GET "https://www.kamis.or.kr/service/price/xml.do?action=dailyPriceByCategoryList&p_product_cls_code=02&p_country_code=1101&p_regday=2026-07-22&p_item_category_code=200&p_cert_key=_____&p_cert_id=____&p_returntype=json" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" -H "Accept: application/json, text/plain, */*" -H "Accept-Language: ko-KR,ko;q=0.9,en;q=0.8" -H "Referer: https://www.kamis.or.kr/" -H "Origin: https://www.kamis.or.kr" -H "Cache-Control: no-cache"
 ```
+### 명령창에서 KAMIS GET 요청 테스트(MAC용) :
+```
+curl -X GET "https://www.kamis.or.kr/service/price/xml.do?action=dailyPriceByCategoryList&p_product_cls_code=02&p_country_code=1101&p_regday=2026-07-22&p_item_category_code=200&p_cert_key=YOUR_CERT_KEY&p_cert_id=YOUR_CERT_ID&p_returntype=json" -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" -H "Accept: application/json, text/plain, */*" -H "Accept-Language: ko-KR,ko;q=0.9,en;q=0.8" -H "Referer: https://www.kamis.or.kr/" -H "Origin: https://www.kamis.or.kr" -H "Cache-Control: no-cache"
+```
+
 
 #### AI 영수증 정리봇 System Message :
 ```
