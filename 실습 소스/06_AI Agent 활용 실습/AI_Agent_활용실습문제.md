@@ -75,6 +75,7 @@ Import한 답안 워크플로우의 **Google Gemini Chat Model** 서브노드에
 n8n **OpenWeatherMap Tool** 노드와 **HTTP Request Tool** 2개를 Agent에 연결해, **날씨**, **KAMIS 농산물 가격**, **카카오톡 나에게 보내기**를 처리합니다.
 
 ### 요구사항
+(KAMIS는 안될 경우 생략!!)
 
 ```
 When chat message received → AI Agent
