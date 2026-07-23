@@ -549,17 +549,13 @@ Webhook (POST) → AI Agent → Respond to Webhook
 **계산 테스트**
 
 ```bash
-curl -X POST "https://YOUR-N8N-URL/webhook-test/agent-assistant" \
-  -H "Content-Type: application/json" \
-  -d "{\"message\": \"연봉 6,000만 원을 12로 나누면 월급이 얼마야?\"}"
+curl -X POST "https://YOUR-N8N-URL/webhook-test/agent-assistant" -H "Content-Type: application/json" -d "{\"message\": \"연봉 6,000만 원을 12로 나누면 월급이 얼마야?\"}"
 ```
 
 **날씨 테스트**
 
 ```bash
-curl -X POST "https://YOUR-N8N-URL/webhook-test/agent-assistant" \
-  -H "Content-Type: application/json" \
-  -d "{\"message\": \"서울시 지금 날씨와 기온 알려줘.\"}"
+curl -X POST "https://YOUR-N8N-URL/webhook-test/agent-assistant" -H "Content-Type: application/json" -d "{\"message\": \"서울시 지금 날씨와 기온 알려줘.\"}"
 ```
 
 ### 확인 사항
