@@ -152,7 +152,7 @@ When chat message received → AI Agent
 **3번 — 카카오톡 알림**
 
 ```
-"청주 날씨 확인 완료"라는 문구를 카카오톡으로 나에게 보내줘.
+"서울 날씨 확인 완료"라는 문구를 카카오톡으로 나에게 보내줘.
 ```
 
 ### 확인 사항
@@ -408,7 +408,7 @@ When chat message received → AI Agent
 **2번**
 
 ```
-청주시 지금 날씨와 기온 알려줘.
+서울시 지금 날씨와 기온 알려줘.
 ```
 
 **3번**
@@ -559,7 +559,7 @@ curl -X POST "https://YOUR-N8N-URL/webhook-test/agent-assistant" \
 ```bash
 curl -X POST "https://YOUR-N8N-URL/webhook-test/agent-assistant" \
   -H "Content-Type: application/json" \
-  -d "{\"message\": \"청주시 지금 날씨와 기온 알려줘.\"}"
+  -d "{\"message\": \"서울시 지금 날씨와 기온 알려줘.\"}"
 ```
 
 ### 확인 사항
