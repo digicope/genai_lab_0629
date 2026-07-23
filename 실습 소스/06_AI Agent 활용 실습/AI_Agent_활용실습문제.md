@@ -517,7 +517,7 @@ Webhook (POST) → AI Agent → Respond to Webhook
 | **Webhook** | Method: `POST`, Path: `agent-assistant` |
 | | Response Mode: **Using 'Respond to Webhook' Node** |
 | **AI Agent** | Prompt Source: **Define below** |
-| | Text: `={{ $json.body.message }}` |
+| | Prompt (User Message): `={{ $json.body.message }}` |
 | | System Message: 아래 내용 |
 | **OpenWeatherMap Tool** | 실습 1과 동일 (`$fromAI` cityName, Credential 연결) |
 | **KAMIS 농산물 가격** | 실습 1과 동일 (HTTP Request Tool) |
