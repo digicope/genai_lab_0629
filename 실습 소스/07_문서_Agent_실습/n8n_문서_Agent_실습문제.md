@@ -20,7 +20,7 @@ Edit Fields (메타데이터 정리)
     ↓
 HTTP Request — Upstage Document Parse API
     ↓
-Extract Markdown
+Edit Field - Extract Markdown
     ↓
 Basic LLM Chain + Solar LLM
     ↓
@@ -237,7 +237,7 @@ Basic LLM Chain → HTTP Request (POST, GAS URL, JSON Body) → Respond to Webho
 | Document Parse — model | `document-parse` |
 | Document Parse — output_formats | `["markdown"]` |
 | Document Parse — binary 필드 | form: `document` ← Webhook `file` |
-| Extract Markdown | `markdown` = `={{ $json.content.markdown }}` |
+| Edit Field - Extract Markdown | `markdown` = `={{ $json.content.markdown }}` |
 | Solar Model | `solar-mini` 또는 `solar-pro2` |
 | Solar Temperature | `0.3` |
 
@@ -374,7 +374,7 @@ Markdown을 **Solar LLM**으로 요약합니다.
 ### 요구사항
 
 ```
-Webhook → Edit Fields → HTTP Request — Document Parse → Extract Markdown → Basic LLM Chain → Respond to Webhook
+Webhook → Edit Fields → HTTP Request — Document Parse → Edit Field - Extract Markdown → Basic LLM Chain → Respond to Webhook
                                                                                     ↑
                                                                       Upstage Solar Chat for Agent
 ```
@@ -393,7 +393,7 @@ Webhook → Edit Fields → HTTP Request — Document Parse → Extract Markdown
 {{ $('Edit Fields').item.json.docTitle }}
 
 [원문]
-{{ $('Extract Markdown').item.json.markdown }}
+{{ $('Edit Field - Extract Markdown').item.json.markdown }}
 
 아래 형식으로 작성하세요:
 
@@ -413,7 +413,7 @@ Webhook → Edit Fields → HTTP Request — Document Parse → Extract Markdown
 ### 확인 사항
 
 - [ ] Solar Model이 Chain **Model** 슬롯에 연결
-- [ ] 프롬프트에서 `$('Extract Markdown').item.json.markdown` 참조
+- [ ] 프롬프트에서 `$('Edit Field - Extract Markdown').item.json.markdown` 참조
 - [ ] `$json.text`에 한국어 요약 출력
 
 ---
@@ -516,7 +516,7 @@ Docs 파일을 지정 **Drive 폴더**로 이동합니다.
 ### 전체 흐름
 
 ```
-Webhook → Edit Fields → HTTP Request — Document Parse → Extract Markdown
+Webhook → Edit Fields → HTTP Request — Document Parse → Edit Field - Extract Markdown
   → Basic LLM Chain (+ Upstage Solar Chat for Agent)
   → Google Docs (Create) → Google Docs1 (Update)
   → Google Drive (Move) → Gmail → Respond to Webhook
@@ -527,7 +527,7 @@ Webhook → Edit Fields → HTTP Request — Document Parse → Extract Markdown
 | 항목 | 조건 |
 |------|------|
 | Webhook Path | `pdf-agent` |
-| Document Parse | HTTP Request + Header Auth + Extract Markdown |
+| Document Parse | HTTP Request + Header Auth + Edit Field - Extract Markdown |
 | 워크플로우 상태 | **Active** (Production URL 사용) |
 | Solar Model | `solar-mini` 이상 |
 | Google | Connect my account 연결 |
@@ -547,7 +547,7 @@ curl -X POST "https://YOUR-INSTANCE.app.n8n.cloud/webhook/pdf-agent" \
 
 ### 확인 사항 (체크리스트)
 
-- [ ] HTTP Request Document Parse + Extract Markdown이 동작하는가?
+- [ ] HTTP Request Document Parse + Edit Field - Extract Markdown이 동작하는가?
 - [ ] 워크플로우가 **Active** 상태인가?
 - [ ] Production Webhook URL로 전체 파이프라인이 실행되는가?
 - [ ] Google Docs · Drive · Gmail이 모두 동작하는가?
@@ -560,7 +560,7 @@ curl -X POST "https://YOUR-INSTANCE.app.n8n.cloud/webhook/pdf-agent" \
 | 실습 | 배점 | 핵심 평가 |
 |------|------|-----------|
 | 실습 1 | 10점 | Cloud Webhook PDF 수신 |
-| 실습 2 | 15점 | HTTP Request Document Parse + Extract Markdown |
+| 실습 2 | 15점 | HTTP Request Document Parse + Edit Field - Extract Markdown |
 | 실습 3 | 20점 | Solar LLM 요약 |
 | 실습 4 | 15점 | Google Docs (Connect my account) |
 | 실습 5 | 10점 | Google Drive 폴더 이동 |
@@ -598,7 +598,7 @@ curl -X POST "https://YOUR-INSTANCE.app.n8n.cloud/webhook/pdf-agent" \
 ## 자주 묻는 질문 (Cloud)
 
 **Q. Upstage Document Parse 노드가 없어요.**  
-A. n8n Cloud에서는 Document Parse Community Node를 **지원하지 않습니다.** 답안대로 **HTTP Request** 노드로 API를 호출하고, **Extract Markdown** 노드로 `content.markdown`을 추출하세요.
+A. n8n Cloud에서는 Document Parse Community Node를 **지원하지 않습니다.** 답안대로 **HTTP Request** 노드로 API를 호출하고, **Edit Field - Extract Markdown** 노드로 `content.markdown`을 추출하세요.
 
 **Q. HTTP Request에서 401 Unauthorized 오류가 납니다.**  
 A. Header Auth Credential의 Value가 `Bearer YOUR_API_KEY` 형식인지 확인하세요. `Bearer`와 키 사이에 공백이 있어야 합니다.
