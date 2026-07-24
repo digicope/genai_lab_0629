@@ -496,7 +496,10 @@ Docs 파일을 지정 **Drive 폴더**로 이동합니다.
 | | Subject: `=[n8n Agent] {{ $('Edit Fields').item.json.docTitle }} 분석 완료` |
 | Credential | **Gmail OAuth2 — Connect my account** |
 | **Email Type** | Text |
-| **Message** | `안녕하세요,
+
+#### Gmail Message :
+```
+안녕하세요,
 
 요청하신 PDF 문서 분석이 완료되었습니다.
 
@@ -508,8 +511,8 @@ Docs 파일을 지정 **Drive 폴더**로 이동합니다.
 {{ $('Basic LLM Chain').item.json.text }}
 
 ---
-본 메일은 n8n 문서 Agent 워크플로우에서 자동 발송되었습니다.` |
-
+본 메일은 n8n 문서 Agent 워크플로우에서 자동 발송되었습니다.
+```
 
 #### Respond to Webhook :
 ```
