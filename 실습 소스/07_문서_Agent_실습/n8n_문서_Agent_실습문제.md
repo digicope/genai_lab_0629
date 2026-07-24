@@ -437,8 +437,8 @@ Webhook → Edit Fields → HTTP Request — Document Parse → Edit Fields - Ex
 
 | 노드 | 설정 |
 |------|------|
-| **Google Docs** (Create) | Title: `={{ $('Edit Fields').item.json.docTitle }}`, Drive: My Drive |
-| **Google Docs1** (Update) | Doc ID: `={{ $json.id }}`, Text Insert: `={{ $('Basic LLM Chain').item.json.text }}` |
+| **Google Docs** | Title: `={{ $('Edit Fields').item.json.docTitle }}`, Drive: My Drive |
+| **Google Docs1** | Doc ID: `={{ $json.id }}`, Text Insert: `={{ $('Basic LLM Chain').item.json.text }}` |
 | Credential | **Connect my account** (GCP 불필요) |
 
 #### Respond to Webhook --> Response Body :
@@ -497,6 +497,9 @@ Docs 파일을 지정 **Drive 폴더**로 이동합니다.
 | Credential | **Gmail OAuth2 — Connect my account** |
 
 #### Respond to Webhook :
+```
+{{ { status: 'completed', email: $('Edit Fields').item.json.recipientEmail, documentUrl: 'https://docs.google.com/document/d/' + $('Google Docs').item.json.id + '/edit' } }}
+```
 
 **Gmail Message 템플릿**
 
@@ -549,6 +552,10 @@ Webhook → Edit Fields → HTTP Request — Document Parse → Edit Fields - Ex
 | Drive | `n8n-문서리포트` 폴더 이동 |
 | 최종 응답 | `status`, `documentId`, `documentUrl`, `email` |
 
+#### Respond to Webhook :
+```
+{{ { status: 'completed', email: $('Edit Fields').item.json.recipientEmail, documentId: $('Google Docs').item.json.id, documentUrl: 'https://docs.google.com/document/d/' + $('Google Docs').item.json.id + '/edit' } }}
+```
 ### 최종 테스트
 
 ```bash
