@@ -517,23 +517,6 @@ Docs 파일을 지정 **Drive 폴더**로 이동합니다.
 {{ { status: 'completed', email: $('Edit Fields').item.json.recipientEmail, documentUrl: 'https://docs.google.com/document/d/' + $('Google Docs').item.json.id + '/edit' } }}
 ```
 
-**Gmail Message 템플릿**
-
-```
-안녕하세요,
-
-요청하신 PDF 문서 분석이 완료되었습니다.
-
-📄 문서 제목: {{ $('Edit Fields').item.json.docTitle }}
-🔗 Google Docs: https://docs.google.com/document/d/{{ $('Google Docs').item.json.id }}/edit
-
---- AI 요약 ---
-{{ $('Basic LLM Chain').item.json.text }}
-
----
-본 메일은 n8n Cloud 문서 Agent에서 자동 발송되었습니다.
-```
-
 ### 확인 사항
 
 - [ ] 수신자 이메일로 메일 도착
