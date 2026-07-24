@@ -383,6 +383,11 @@ Webhook → Edit Fields → HTTP Request — Document Parse → Edit Field - Ext
 |------|------|
 | **Upstage Solar Chat for Agent** | Model: `solar-mini`, Temperature: `0.3`, maxTokens: `4096` |
 
+#### Respond to Webhook:
+```
+{{ { status: 'summarized', summary: $json.text } }}
+```
+
 **Prompt (User Message)**
 
 ```
