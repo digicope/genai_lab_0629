@@ -327,7 +327,7 @@ Webhook → Edit Fields → HTTP Request — Document Parse → Extract Markdown
 | | Body Parameter `output_formats` | `["markdown"]` |
 | | Body Parameter `document` | Type: **n8n Binary File**, Input Field: `file` |
 | **Edit Field Extract Markdown** | `markdown` = `={{ $json.content.markdown }}` |
-| **Respond to Webhook** | `={{ { status: 'parsed', title: $('Edit Fields').item.json.docTitle, preview: ($json.markdown || '').substring(0, 200) + '...' } }}` |
+| **Respond to Webhook** | ```={{ { status: 'parsed', title: $('Edit Fields').item.json.docTitle, preview: ($json.markdown || '').substring(0, 200) + '...' } }}``` |
 
 **HTTP Request Body Parameters 요약**
 
