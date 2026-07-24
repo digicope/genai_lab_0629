@@ -441,6 +441,10 @@ Webhook → Edit Fields → HTTP Request — Document Parse → Edit Fields - Ex
 | **Google Docs1** (Update) | Doc ID: `={{ $json.id }}`, Text Insert: `={{ $('Basic LLM Chain').item.json.text }}` |
 | Credential | **Connect my account** (GCP 불필요) |
 
+#### Respond to Webhook --> Response Body :
+```
+{{ { status: 'doc_created', documentId: $('Google Docs').item.json.id, url: 'https://docs.google.com/document/d/' + $('Google Docs').item.json.id + '/edit' } }}
+```
 ### 확인 사항
 
 - [ ] Google Docs에 요약 텍스트 삽입
