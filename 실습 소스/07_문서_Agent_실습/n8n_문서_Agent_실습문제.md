@@ -468,6 +468,10 @@ Docs 파일을 지정 **Drive 폴더**로 이동합니다.
 |------|------|
 | **Google Drive** | File Move, File ID: `={{ $('Google Docs').item.json.id }}`, Folder: **본인 폴더 ID** |
 
+#### Respond to Webhook :
+```
+{{ { status: 'saved', folder: 'n8n-문서리포트', documentId: $('Google Docs').item.json.id } }}
+```
 ### 확인 사항
 
 - [ ] `n8n-문서리포트` 폴더에 문서 저장
@@ -491,6 +495,8 @@ Docs 파일을 지정 **Drive 폴더**로 이동합니다.
 | **Gmail** | To: `={{ $('Edit Fields').item.json.recipientEmail }}` |
 | | Subject: `=[n8n Agent] {{ $('Edit Fields').item.json.docTitle }} 분석 완료` |
 | Credential | **Gmail OAuth2 — Connect my account** |
+
+#### Respond to Webhook :
 
 **Gmail Message 템플릿**
 
