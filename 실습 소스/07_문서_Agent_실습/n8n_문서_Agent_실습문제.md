@@ -468,6 +468,9 @@ Docs 파일을 지정 **Drive 폴더**로 이동합니다.
 |------|------|
 | **Google Drive** | File Move, File ID: `={{ $('Google Docs').item.json.id }}`, Folder: **본인 폴더 ID** |
 
+### Parent Drive  : My Drive
+### Parent Folder  : /(Root folder)
+
 #### Respond to Webhook :
 ```
 {{ { status: 'saved', folder: 'n8n-문서리포트', documentId: $('Google Docs').item.json.id } }}
